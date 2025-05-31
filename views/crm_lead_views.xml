@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_crm_lead_form_location_community" model="ir.ui.view">
+        <field name="name">crm.lead.form.location.community</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='internal_notes']" position="after">
+                <group string="Visit Location">
+                    <field name="latitude" readonly="1"/>
+                    <field name="longitude" readonly="1"/>
+                    <field name="location_address" readonly="1"/>
+                    <button string="View on Map" type="object" name="action_open_google_map"
+                            attrs="{'invisible': ['|', ('latitude', '=', False), ('longitude', '=', False)]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
